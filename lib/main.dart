@@ -4,19 +4,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  runApp(const BusinessCardApp());
+  runApp(BusinessCardApp());
 }
 
 // ignore: must_be_immutable
-class BusinessCardApp extends StatefulWidget {
-  const BusinessCardApp({super.key});
+class BusinessCardApp extends StatelessWidget {
+  BusinessCardApp({super.key});
 
-  @override
-  State<BusinessCardApp> createState() => _BusinessCardAppState();
-}
-
-class _BusinessCardAppState extends State<BusinessCardApp> {
-  List<LaunchMode> modeList = [];
+  List<LaunchMode> mode = [];
 
   // This widget is the root of your application.
   @override
@@ -67,9 +62,9 @@ class _BusinessCardAppState extends State<BusinessCardApp> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                          icon: Icon(Icons.facebook),
+                          icon: const Icon(Icons.facebook),
                           iconSize: 80,
-                          color: Color(0xFF111111),
+                          color: const Color(0xFF111111),
                           onPressed: () {
                             onLaunch('https://www.facebook.com/mo.sayed722',
                                 mode: mode);
@@ -79,7 +74,7 @@ class _BusinessCardAppState extends State<BusinessCardApp> {
                       //   size: 75,
                       //   color: Color.fromARGB(255, 17, 17, 17),
                       // ),
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.squareInstagram,
                         size: 75,
                         color: Color(0xFF111111),
@@ -176,6 +171,5 @@ onLaunch(url, {mode = LaunchMode.platformDefault}) async {
     Uri.parse(url),
   );
 
-  mode:
   mode;
 }
