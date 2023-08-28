@@ -1,0 +1,201 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../models/iconModel.dart';
+import '../views/iconView.dart';
+
+// ignore: must_be_immutable
+class BusinessCardApp extends StatelessWidget {
+  BusinessCardApp({super.key});
+
+  List<LaunchMode> mode = [];
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          elevation: 0.0,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10))),
+          backgroundColor: Colors.grey,
+          leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+          title: const Text(
+            "Business Card",
+            style: TextStyle(fontSize: 24),
+          ),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
+          ],
+        ),
+        backgroundColor: const Color(0xffd1d3d4),
+        body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          const Center(
+            child: Image(
+              image: AssetImage('images/4.png'),
+              height: 250,
+              width: 250,
+            ),
+          ),
+          const Text(
+            "Mohamed El Hagrasy",
+            style: TextStyle(
+              color: Colors.blueGrey,
+              fontSize: 30,
+              fontFamily: "fonts/OpenSans-ExtraBold.ttf",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            height: 300,
+            child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
+              itemBuilder: (context, index) => IconView(
+                model: iconOnTap[index],
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+// onLaunch(url, {mode = LaunchMode.platformDefault}) async {
+//   await launchUrl(
+//     Uri.parse(url),
+//   );
+
+//   mode;
+// }
+
+
+// child: CircleAvatar(
+                //   backgroundColor: Color(0xffd1d3d4),
+                //   radius: 100,
+                //   child: CircleAvatar(
+                //     backgroundImage: AssetImage('images/4.png'),
+                //     radius: 150.0,
+                //   ),
+                // ),
+
+ // Expanded(
+            //     child: ListView(children: [
+            //   Padding(
+            //     padding: const EdgeInsets.only(top: 25),
+            //     child: Container(
+            //       height: 75,
+            //       width: 20,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //       child: Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //         children: [
+            //           IconButton(
+            //               icon: const Icon(Icons.facebook),
+            //               iconSize: 80,
+            //               color: const Color(0xFF111111),
+            //               onPressed: () {
+            //                 onLaunch('https://www.facebook.com/mo.sayed722',
+            //                     mode: mode);
+            //               }),
+            //           // FaIcon(
+            //           //   FontAwesomeIcons.squareFacebook,
+            //           //   size: 75,
+            //           //   color: Color.fromARGB(255, 17, 17, 17),
+            //           // ),
+            //           const FaIcon(
+            //             FontAwesomeIcons.squareInstagram,
+            //             size: 75,
+            //             color: Color(0xFF111111),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            //   Padding(
+            //     padding: const EdgeInsets.only(top: 40),
+            //     child: Container(
+            //       height: 75,
+            //       width: 20,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //       child: const Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //         children: [
+            //           FaIcon(
+            //             FontAwesomeIcons.linkedin,
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //           FaIcon(
+            //             FontAwesomeIcons.twitter,
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            //   Padding(
+            //     padding: const EdgeInsets.only(top: 40),
+            //     child: Container(
+            //       height: 75,
+            //       width: 20,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //       child: const Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //         children: [
+            //           FaIcon(
+            //             FontAwesomeIcons.github,
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //           FaIcon(
+            //             FontAwesomeIcons.file,
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            //   Padding(
+            //     padding: const EdgeInsets.only(top: 40),
+            //     child: Container(
+            //       height: 75,
+            //       width: 20,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(12),
+            //       ),
+            //       child: const Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //         children: [
+            //           FaIcon(
+            //             FontAwesomeIcons.tikTok, //
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //           FaIcon(
+            //             FontAwesomeIcons.behance,
+            //             size: 75,
+            //             color: Color.fromARGB(255, 17, 17, 17),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ]))
