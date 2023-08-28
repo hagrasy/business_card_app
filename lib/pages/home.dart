@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/iconModel.dart';
-import '../views/iconView.dart';
+import '../models/icon_model.dart';
+import '../views/icon_view.dart';
 
 // ignore: must_be_immutable
 class BusinessCardApp extends StatelessWidget {
@@ -51,16 +51,30 @@ class BusinessCardApp extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           SizedBox(
-            height: 300,
-            child: GridView.builder(
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20),
-              itemBuilder: (context, index) => IconView(
-                model: iconOnTap[index],
+            height: 400,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 35),
+              child: GridView.builder(
+                shrinkWrap: true,
+                itemCount: iconOnTap.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 100,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 0),
+                itemBuilder: (context, index) => Container(
+                  margin: const EdgeInsets.only(left: 35, right: 35),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 194, 194, 194),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: IconView(
+                    model: iconOnTap[index],
+                  ),
+                ),
               ),
             ),
           ),
