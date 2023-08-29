@@ -9,10 +9,15 @@ class IconView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {},
-      icon: Icon(model.iconItem),
-      iconSize: 80,
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(model.iconItem),
+          iconSize: 80,
+        ),
+        const Text(Text(model.iconName))
+      ],
     );
   }
 }
