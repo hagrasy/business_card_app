@@ -56,17 +56,18 @@ class BusinessCardApp extends StatelessWidget {
           SizedBox(
             height: 400,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 35),
+              padding: const EdgeInsets.symmetric(horizontal: 55),
               child: GridView.builder(
                 shrinkWrap: true,
                 itemCount: iconOnTap.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisExtent: 100,
                     crossAxisCount: 2,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 0),
+                    mainAxisSpacing: 40,
+                    crossAxisSpacing: 30),
                 itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.only(left: 35, right: 35),
+                  height: 150,
+                  // margin: const EdgeInsets.only(left: 35, right: 35),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 194, 194, 194),
                     borderRadius: BorderRadius.circular(10),

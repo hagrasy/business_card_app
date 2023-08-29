@@ -16,7 +16,10 @@ class IconView extends StatelessWidget {
           icon: Icon(model.iconItem),
           iconSize: 80,
         ),
-        const Text(Text(model.iconName))
+        Text(
+          model.iconName.toString(),
+          style: const TextStyle(fontSize: 20),
+        )
       ],
     );
   }
